@@ -21,10 +21,23 @@
  *
  * Rules:
  *   - If income is 0 or negative, return 0
- *
+ * 
  * @param {number} income - Annual income in dollars
  * @returns {number} Total tax amount owed
  */
 export function calculateTax(income) {
   // Your code here
+  var tax = 0
+  if(income > 70000){
+    tax += (income - 70000) *0.3
+    income = income- (income - 70000)
+  }
+  if(income > 30000){
+    tax += (income - 30000) *0.2
+    income = income- (income - 30000)
+  }
+  if(income > 10000){
+    tax += (income - 10000) *0.1
+  }
+  return tax
 }

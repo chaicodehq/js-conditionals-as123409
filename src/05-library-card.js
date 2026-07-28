@@ -34,4 +34,24 @@
  */
 export function canBorrowBook(memberAge, hasValidCard, overdueBooks) {
   // Your code here
+  var answer
+  if(memberAge >= 6){
+    answer = {
+    allowed: true,
+    message: "You may borrow up to 3 books"}
+  }
+  else{
+    answer ={
+    allowed: false,
+    message: "Too young - must be at least 6 years old"}
+  }
+  if(!hasValidCard && answer.allowed === true){
+    answer.allowed= false
+    answer.message ="Invalid library card - please renew at the front desk"
+  }
+  if(overdueBooks != 0 && answer.allowed === true){
+    answer.allowed = false
+    answer.message = "Please return your " + overdueBooks + " overdue book(s) first"
+  }
+  return answer
 }

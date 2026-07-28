@@ -31,4 +31,38 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if(billAmount <=0 || !Number.isInteger(serviceRating) ||serviceRating <1 || serviceRating> 5){
+    return null
+  }
+  var detail ={
+    tipPercentage: 0,
+    tipAmount: 0,
+    totalAmount: 0
+  }
+  if(serviceRating ===1){
+    detail.tipPercentage = 5
+    detail.tipAmount = Number((billAmount* 0.05).toFixed(2))
+    detail.totalAmount = Number((detail.tipAmount + billAmount).toFixed(2))
+  }
+  else if(serviceRating ===2){
+    detail.tipPercentage = 10
+    detail.tipAmount = Number((billAmount* 0.1).toFixed(2))
+    detail.totalAmount = Number((detail.tipAmount + billAmount).toFixed(2))
+  }
+  else if(serviceRating === 3){
+    detail.tipPercentage = 15
+    detail.tipAmount = Number((billAmount* 0.15).toFixed(2))
+    detail.totalAmount = Number((detail.tipAmount + billAmount).toFixed(2))
+  }
+  else if(serviceRating === 4){
+    detail.tipPercentage = 20
+    detail.tipAmount = Number((billAmount* 0.2).toFixed(2))
+    detail.totalAmount = Number((detail.tipAmount + billAmount).toFixed(2))
+  }
+  else if(serviceRating === 5){
+    detail.tipPercentage = 25
+    detail.tipAmount = Number((billAmount* 0.25).toFixed(2))
+    detail.totalAmount = Number((detail.tipAmount + billAmount).toFixed(2))
+  }
+  return detail
 }
